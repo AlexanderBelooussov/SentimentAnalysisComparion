@@ -1,0 +1,6 @@
+transformers
+textblob
+flair
+vaderSentiment
+scikit-learn
+numpy
