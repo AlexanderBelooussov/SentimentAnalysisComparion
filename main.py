@@ -75,7 +75,7 @@ def main():
     max_name_len = max([len(model.name) for model in models])
     sorted_scores = sorted(zip(scores, times, models), reverse=True)
     print("\nSorted scores")
-    print(f"{'Model':<{max_name_len}}\t{'Score':<12}\t{'Time':<12}\t{'Time per text':<12}\t{'Params':<12}")
+    print(f"{'Model':<{max_name_len}}\t{'Accuracy':<12}\t{'Time':<12}\t{'Time per text':<12}\t{'Params':<12}")
     print(f"{'-' * max_name_len:<{max_name_len}}\t{'-' * 12:<12}\t{'-' * 12:<12}\t{'-' * 12:<12}\t{'-' * 12:<12}")
     for score, t, model in sorted_scores:
         print(f"{model.name:<{max_name_len}}"
