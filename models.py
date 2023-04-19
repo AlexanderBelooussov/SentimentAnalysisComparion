@@ -1,6 +1,7 @@
 import time
 
 import numpy as np
+import torch
 from flair.data import Sentence
 from flair.models import TextClassifier
 from textblob import TextBlob
@@ -44,9 +45,10 @@ class TransformerModel(BaseModel):
 
     def __init__(self, model_path):
         super().__init__()
+        device = 0 if torch.cuda.is_available() else -1
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
         self.model = AutoModelForSequenceClassification.from_pretrained(model_path)
-        self.pipeline = pipeline('sentiment-analysis', model=self.model, tokenizer=self.tokenizer)
+        self.pipeline = pipeline('sentiment-analysis', model=self.model, tokenizer=self.tokenizer, device=device)
         self.n_params = sum([p.numel() for p in self.model.parameters()])
         self.name = f"{model_path} ({self.n_params:,} params)"
 

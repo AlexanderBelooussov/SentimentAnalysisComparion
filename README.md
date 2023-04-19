@@ -45,3 +45,16 @@ cardiffnlp/twitter-roberta-base-sentiment-latest (124,647,939 params)	0.8500    
 Vader                                                                	0.6400      	0.40        	0.00        	           /
 TextBlob                                                             	0.5900      	0.11        	0.00        	           /
 ```
+### On a GPU
+```text
+Model                                                                	Time        	Time per text	Params      
+---------------------------------------------------------------------	------------	------------	------------
+JiaqiLee/imdb-finetuned-bert-base-uncased (109,483,778 params)       	1.74       	0.02        	   109483778
+aychang/roberta-base-imdb (124,647,170 params)                       	1.77       	0.02        	   124647170
+Flair (66,364,418 params)                                            	1.47       	0.01        	    66364418
+distilbert-base-uncased-finetuned-sst-2-english (66,955,010 params)  	0.97       	0.01        	    66955010
+cardiffnlp/twitter-roberta-base-sentiment-latest (124,647,939 params)	1.76       	0.02        	   124647939
+```
+(The first algorithm to run is always the slowest. For a fair comparison, experiment was run twice with different orders.)
+## Note
+Torch needs to be installed with GPU support to enable faster execution. For more information, see [here](https://pytorch.org/).
